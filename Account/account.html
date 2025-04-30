@@ -1,0 +1,56 @@
+<DOCTYPE html>
+    <html>
+        <head>
+            <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+            <link rel="stylesheet" href="account.css">
+        </head>
+    
+        <body class="body">
+            <div class="top">
+                <div class="left">
+                    <div class="main">Coding with Desmos</div>
+                    <div class="div-block-2"></div>
+                    <div class="about">About</div>
+                    <div class="learn">Learn</div>
+                    <div class="share">Share</div>
+                </div>
+                <div class="right">
+                    <div class="div-block-3"></div>
+                    <div class="user">
+                        <p class="userName"></p>
+                        <div class="account-hover">
+                            <p class="mystuff">My stuff</p>
+                            <p class="myaccount">My account</p>
+                            <p class="logout">Log out</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center">
+                <div class="w-form">
+                    <div class="message">text</div>
+                    <form id="email-form" name="email-form" data-name="Email form" method="get" class="form">
+                        <label for="name" class="field-label-2">Username</label>
+                        <input class="w-input" maxlength="256" name="name" data-name="Name" placeholder="Name" type="text" id="name">
+                        <label for="email" class="field-label-2">Email Address</label>
+                        <input class="w-input" maxlength="256" name="email" data-name="Email" placeholder="email@gmail.com" type="text" id="email">
+                        <label for="o-password" class="field-label-2">Current Password</label>
+                        <input class="w-input" maxlength="256" name="o-password" data-name="O-password" placeholder="Current password" type="text" id="o-password">
+                        <label for="c-password" class="field-label-2">New Password</label>
+                        <input class="w-input" maxlength="256" name="password" data-name="Password" placeholder="Leave blank if changes are not needed" type="text" id="password">
+                        <label for="c-password" class="field-label-2">Confirm New Password</label>
+                        <input class="w-input" maxlength="256" name="c-password" data-name="C-password" placeholder="Leave blank if changes are not needed" type="text" id="c-password">
+                        <input type="submit" data-wait="Please wait..." class="submit w-button" value="Update">
+                    </form>
+                    <!--<div class="w-form-done">
+                        <div>Thank you! Your account has successfully been created!</div>
+                    </div>
+                    <div class="w-form-fail">
+                        <div>An error has occured in creating your account. Try harder next time?</div>
+                    </div>-->
+                </div>
+            </div>
+    
+            <script type="module" src="account.js"></script>
+        </body>
+    </html>

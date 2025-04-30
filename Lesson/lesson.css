@@ -1,0 +1,246 @@
+.background {
+    position: absolute;
+    z-index: -1;
+    align-self: center;
+    justify-self: center;
+    margin-left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.3;
+}
+
+.section {
+    display: flex;
+}
+
+.body {
+    font-family: Montserrat;
+}
+
+.top {
+    grid-column-gap: 40%;
+    grid-row-gap: 40%;
+    border-bottom: 1px solid #000;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: 1fr;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    display: flex;
+}
+
+.about {
+    flex: 0 auto;
+    margin-left: 0%;
+    color: black;
+    transition: 300ms;
+}
+
+.about:hover {
+    color: rgb(0, 148, 2);
+}
+
+.div-block {
+    width: 50%;
+    display: flex;
+}
+
+.user {
+    width: auto;
+    color: #009402;
+    height:auto;
+}
+
+.userName {
+    margin-top: 0;
+}
+
+.user:hover .account-hover{
+    opacity: 1;
+}
+
+.account-hover {
+    opacity: 0;
+    position:absolute;
+    width: 90px;
+    height: auto;
+    border: 1px solid #000;
+    right: 0px;
+    top: 25px;
+    text-align: center;
+    background-color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: 300ms;
+    z-index: 10000;
+}
+
+.account-hover:hover {
+    opacity: 1;
+}
+
+.logout, .mystuff, .myaccount {
+    color:#000;
+    transition: 300ms;
+}
+
+.logout:hover, .mystuff:hover, .myaccount:hover {
+    color: #009402;
+}
+
+.right {
+    grid-column-gap: 45px;
+    grid-row-gap: 45px;
+    display: flex;
+    right: 30px;
+    position:absolute;
+}
+
+.left {
+    grid-column-gap: 45px;
+    grid-row-gap: 45px;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    width: 50%;
+    padding-left: 0;
+    display: flex;
+    position:absolute;
+    left: 30px;
+}
+
+.learn {
+    margin-left: 0;
+    color: black;
+    transition: 300ms;
+}
+
+.learn:hover {
+    color: rgb(0, 148, 2);
+}
+
+.main {
+    width: auto;
+    margin-right: 0px;
+    color: rgb(0, 0, 0);
+    transition: 300ms;
+}
+
+.main:hover {
+    color:rgb(0, 148, 2)
+}
+
+.share {
+    color: black;
+    transition: 300ms;
+}
+
+.share:hover {
+    color: rgb(0, 148, 2);
+}
+
+.login, .signup, .user {
+    width: max-content;
+    color: black;
+    transition: 300ms;
+}
+
+.login:hover, .signup:hover, .user:hover {
+    color: rgb(0, 148, 2);
+}
+
+.horizontal {
+    border-top: 1px solid #000;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.div-block-2, .div-block-3 {
+    border-right: 1px solid #000;
+    margin-left: -22.5px;
+    margin-right: -22.5px;
+}
+
+.text-block-14 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.div-block-11 {
+    margin-top: 20px;
+    margin-right: 60px;
+    margin-left: 60px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: black;
+    line-height: 0px;
+}
+
+.div-block-10 {
+    height: 100%;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: black;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: black;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+}
+
+.lesson-doc {
+    border: none;
+    outline: none;
+    width: calc(100% - 20px);
+    height: auto;
+    font-family: Montserrat;
+    font-size: 15px;
+    padding: 10px;
+    margin: 0px;
+    overflow: visible;
+}
+
+.image-layer {
+    margin: 10px;
+    width: fit-content;
+    height: auto;
+    border: 1px solid #000;
+}
+
+.edit-tools {
+    z-index: 1000;
+    position: relative;
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    height: 40px;
+}
+
+.upload-img {
+    margin: 0px;
+}
+
+.file {
+    margin: 0px;
+}
+
+.title {
+    margin-top: 20px;
+}

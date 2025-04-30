@@ -1,0 +1,50 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="stylesheet" href="signup.css">
+    </head>
+
+    <body class="body">
+        <div class="top">
+            <div class="left">
+                <div class="main">Coding with Desmos</div>
+                <div class="div-block-2"></div>
+                <div class="about">About</div>
+                <div class="learn">Learn</div>
+                <div class="share">Share</div>
+            </div>
+            <div class="right">
+                <div class="login">Log in</div>
+                <div class="div-block-3"></div>
+                <div class="signup">Sign up</div>
+                <div class="user"></div>
+            </div>
+        </div>
+        <div class="center">
+            <div class="w-form">
+                <div class="message">text</div>
+                <form id="email-form" name="email-form" data-name="Email form" method="get" class="form">
+                    <label for="name" class="field-label-2">Username</label>
+                    <input class="w-input" maxlength="256" name="name" data-name="Name" placeholder="Name" type="text" id="name">
+                    <label for="email" class="field-label-2">Email Address</label>
+                    <input class="w-input" maxlength="256" name="email" data-name="Email" placeholder="email@gmail.com" type="text" id="email">
+                    <label for="password" class="field-label-2">Password</label>
+                    <input class="w-input" maxlength="256" name="password" data-name="Password" placeholder="Password" type="text" id="password">
+                    <label for="c-password" class="field-label-2">Confirm Password</label>
+                    <input class="w-input" maxlength="256" name="c-password" data-name="C-password" placeholder="Retype password" type="text" id="c-password">
+                    <input type="submit" data-wait="Please wait..." class="submit w-button" value="Register">
+                    <div class="login-redirect">Already have an account?</div>
+                </form>
+                <!--<div class="w-form-done">
+                    <div>Thank you! Your account has successfully been created!</div>
+                </div>
+                <div class="w-form-fail">
+                    <div>An error has occured in creating your account. Try harder next time?</div>
+                </div>-->
+            </div>
+        </div>
+
+        <script type="module" src="signup.js"></script>
+    </body>
+</html>
