@@ -69,6 +69,7 @@ document.addEventListener('keydown', (e) => {
 })
 
 currentElem = null
+dragElem = null
 
 function newTextArea() {
     let area = document.createElement('p')
@@ -122,6 +123,14 @@ function newTextArea() {
                     currentElem.focus()
                 }
             }
+        } else if (e.key == "q") {
+            e.preventDefault()
+
+            area.focus()
+
+            //area.setSelectionRange(0, area.textContent.length);
+            area.textContent = area.constructor.name;
+            //area.selectionEnd = area.selectionEnd + 7;
         }
     })
 
@@ -202,23 +211,51 @@ function newImage(image) {
 
     // Readjusting image size
     imgContainer.addEventListener('click', () => {
+        dragElem = imgContainer
+
         if (imgContainer.style.borderColor == "rgb(0, 0, 0)") {
-            imgContainer.style.border = "1px solid #0000ff"
+            imgContainer.style.border = "3px solid #6d6dff"
+            imgContainer.style.padding = "1px"
+            currentElem = imgContainer
         } else {
             imgContainer.style.border = "1px solid #000"
+            imgContainer.style.padding = "2px"
+
+            let childs = [...content.children]
+
+            for (let i = 0; i < childs.length; i++) {
+                if (childs[i] == imgContainer) {
+                    currentElem = childs[i+1]
+                    currentElem.focus()
+                    break
+                }
+            }
         }
     })
 
-    imgContainer.addEventListener('mousemove', (e) => {
-        if (imgContainer.style.borderColor == "rgb(0, 0, 255)") {
-            let rect = imgContainer.getBoundingClientRect()
-
-            console.log((e.clientX - rect.left).toFixed(2) + "px")
-            imgContainer.style.width = (e.clientX - rect.left).toFixed(2) + "px"
-            imgContainer.children[0].style.width = (e.clientX - rect.left).toFixed(2) + "px"
-        }
+    imgContainer.addEventListener('mousedown', (e) => {
+        e.preventDefault()
     })
 }
+
+
+// Adjusting image size
+
+function scale(x) {
+    if (currentElem.style.borderColor == "rgb(109, 109, 255)") {
+        let rect = currentElem.getBoundingClientRect()
+
+        console.log((x - rect.left).toFixed(2) + "px")
+        currentElem.style.width = (x - rect.left).toFixed(2) + "px"
+        currentElem.children[0].style.width = (x - rect.left).toFixed(2) + "px"
+    } else {
+        return
+    }
+}
+
+document.addEventListener('mousemove', (e) => {
+    scale(e.clientX)
+})
 
 const uploadImg = document.getElementsByClassName('upload-img')[0]
 const fileGet = document.getElementsByClassName('file')[0]

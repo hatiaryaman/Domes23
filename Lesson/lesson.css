@@ -204,18 +204,22 @@
 .content {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .lesson-doc {
     border: none;
     outline: none;
-    width: calc(100% - 20px);
+    max-width: calc(100% - 20px);
+    width: fit-content;
     height: auto;
     font-family: Montserrat;
     font-size: 15px;
     padding: 10px;
     margin: 0px;
     overflow: visible;
+    background-color: rgb(174, 255, 194);
 }
 
 .image-layer {
@@ -223,6 +227,8 @@
     width: fit-content;
     height: auto;
     border: 1px solid #000;
+    padding: 2px;
+    background-color: rgb(174, 217, 255);
 }
 
 .edit-tools {
