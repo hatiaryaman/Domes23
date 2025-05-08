@@ -207,8 +207,8 @@ function newImage(image) {
     if (currentElem.textContent != "") {
         let start = getCursor()
         removeRange()
-        let firsthalf = ""
-        let secondhalf = ""
+        var firsthalf = ""
+        var secondhalf = ""
 
         for (let i = 0; i < start; i++) {
             firsthalf += currentElem.textContent[i]
@@ -330,28 +330,27 @@ uploadImg.addEventListener('click', () => {
     fileGet.click()
 })
 
-fileGet.addEventListener('change', () => {
+fileGet.addEventListener('change', handleFile)
+
+function handleFile() {
     let images = fileGet.files
 
-    uploadImg.textContent = 'Upload Image'
     let inp = document.createElement('input')
     inp.value = "Click"
     inp.multiple = "multiple"
     inp.accept = "image/png, image/jpeg, image/jpg"
     inp.class = "file"
     inp.type = "file"
-    //uploadImg.appendChild(inp)
+    inp.addEventListener('change', handleFile)
     
     edittools.removeChild(fileGet)
     edittools.insertBefore(inp, align)
 
-    //uploadImg.innerHTML = 'Upload Image<input multiple="multiple" accept="image/png, image/jpeg, image/jpg" class="file", type="file">'
-    fileGet = document.getElementsByClassName('file')[0]
-    content.style.backgroundColor = "#000"
+    fileGet = inp
 
     for (let i = 0; i < images.length; i++) {
         newImage(images[i])
     }
-})
+}
 
 const align = document.getElementsByClassName('alignment')[0]
