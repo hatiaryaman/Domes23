@@ -121,16 +121,14 @@ function newTextArea() {
                     }
 
                     currentElem.focus()
+
+                    setCursor(currentElem.textContent.length);
                 }
             }
-        } else if (e.key == "q") {
+        } else if (e.key == 'q' && e.ctrlKey) {
             e.preventDefault()
 
-            area.focus()
-
-            //area.setSelectionRange(0, area.textContent.length);
-            area.textContent = area.constructor.name;
-            //area.selectionEnd = area.selectionEnd + 7;
+            removeRange()
         }
     })
 
@@ -155,9 +153,74 @@ function newTextArea() {
     currentElem.focus()
 }
 
+function setCursor(pos) {
+    // Creates range object
+    let setpos = document.createRange();
+    
+    // Creates object for selection
+    let set = window.getSelection();
+    
+    // Set start position of range
+    setpos.setStart(currentElem.childNodes[0], pos);
+    
+    // Collapse range within its boundary points
+    // Returns boolean
+    setpos.collapse(true);
+    
+    // Remove all ranges set
+    set.removeAllRanges();
+    
+    // Add range with respect to range object.
+    set.addRange(setpos);
+    
+    // Set cursor on focus
+    currentElem.focus();
+}
+
+function getCursor() {
+    let set = window.getSelection();
+
+    return set.getRangeAt(0).startOffset
+}
+
+function removeRange() {
+    let set = window.getSelection();
+
+    let start = set.getRangeAt(0).startOffset
+    let end = set.getRangeAt(0).endOffset
+
+    text = ""
+
+    for (let i = 0; i < currentElem.textContent.length; i++) {
+        if (i < start || i >= end) {
+            text += currentElem.textContent[i]
+        }
+    }
+
+    currentElem.textContent = text
+    setCursor(start)
+}
+
 newTextArea()
 
 function newImage(image) {
+    if (currentElem.textContent != "") {
+        let start = getCursor()
+        removeRange()
+        let firsthalf = ""
+        let secondhalf = ""
+
+        for (let i = 0; i < start; i++) {
+            firsthalf += currentElem.textContent[i]
+        }
+
+        for (let i = start; i < currentElem.textContent.length; i++) {
+            secondhalf += currentElem.textContent[i]
+        }
+
+        currentElem.textContent = firsthalf
+    }
+
     try {
         if (currentElem.textContent == "") {
             let childs = [...content.children]
@@ -209,6 +272,8 @@ function newImage(image) {
 
     newTextArea()
 
+    currentElem.textContent = secondhalf
+
     // Readjusting image size
     imgContainer.addEventListener('click', () => {
         dragElem = imgContainer
@@ -257,13 +322,36 @@ document.addEventListener('mousemove', (e) => {
     scale(e.clientX)
 })
 
+const edittools = document.getElementsByClassName('edit-tools')[0]
 const uploadImg = document.getElementsByClassName('upload-img')[0]
-const fileGet = document.getElementsByClassName('file')[0]
+var fileGet = document.getElementsByClassName('file')[0]
 
-uploadImg.addEventListener('change', () => {
+uploadImg.addEventListener('click', () => {
+    fileGet.click()
+})
+
+fileGet.addEventListener('change', () => {
     let images = fileGet.files
+
+    uploadImg.textContent = 'Upload Image'
+    let inp = document.createElement('input')
+    inp.value = "Click"
+    inp.multiple = "multiple"
+    inp.accept = "image/png, image/jpeg, image/jpg"
+    inp.class = "file"
+    inp.type = "file"
+    //uploadImg.appendChild(inp)
+    
+    edittools.removeChild(fileGet)
+    edittools.insertBefore(inp, align)
+
+    //uploadImg.innerHTML = 'Upload Image<input multiple="multiple" accept="image/png, image/jpeg, image/jpg" class="file", type="file">'
+    fileGet = document.getElementsByClassName('file')[0]
+    content.style.backgroundColor = "#000"
 
     for (let i = 0; i < images.length; i++) {
         newImage(images[i])
     }
 })
+
+const align = document.getElementsByClassName('alignment')[0]
